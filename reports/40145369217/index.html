@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Test Failures</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0 auto; max-width: 1100px; padding: 16px; color: #1f2328; background: #fff; }
+  h1 { font-size: 22px; } h2 { font-size: 18px; margin-bottom: 4px; }
+  .meta { color: #59636e; font-size: 13px; margin-top: 0; }
+  section { border-top: 1px solid #d1d9e0; padding-top: 12px; margin-top: 20px; }
+  pre { background: #f6f8fa; padding: 12px; overflow-x: auto; white-space: pre-wrap; font-size: 13px; }
+  .offline { background: #fff8c5; border: 1px solid #d4a72c; padding: 8px 12px; }
+  img { max-width: 100%; border: 1px solid #d1d9e0; margin-top: 8px; }
+</style>
+</head>
+<body>
+<h1>Playwright test failures</h1>
+<p>Passed: 11 | Failed: 11 | Flaky: 1 | Skipped: 0</p>
+<p class="meta">Screenshots and errors only (passwords masked). The full report with traces is in the run's playwright-report artifact.</p>
+
+  <section>
+    <h2>LOC-001 | New localite signs up and is verified by an admin</h2>
+    <p class="meta">auth/localite-signup-and-verify.spec.ts · setup</p>
+    <p class="offline">Site offline: The site is showing its &quot;Briefly offline&quot; maintenance page (a deploy is in progress). This is not a test failure; re-run when the site is back.</p>
+    <pre>Error: Step &quot;Sign up as a new Localite&quot; failed: locator.hover: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole(&#39;banner&#39;).getByText(&#39;Sign Up&#39;, { exact: true })
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/auth/localite-signup-and-verify.spec.ts:24:3
+[cause]: TimeoutError: locator.hover: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole(&#39;banner&#39;).getByText(&#39;Sign Up&#39;, { exact: true })
+
+    at SignupPage.openLocaliteSignupFromHome (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/pages/auth/signup-page.ts:145:33)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/auth/localite-signup-and-verify.spec.ts:25:5
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/auth/localite-signup-and-verify.spec.ts:24:3</pre>
+    <a href="img/1-1.png"><img src="img/1-1.png" alt="Screenshot of LOC-001 | New localite signs up and is verified by an admin"></a>
+  </section>
+
+  <section>
+    <h2>PRF-002 | Localite edits name, bio, and hosted experiences</h2>
+    <p class="meta">localite/edit-profile.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Edit name, bio, and experiences&quot; failed: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole(&#39;link&#39;, { name: &#39;Edit Profile&#39;, exact: true })
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/edit-profile.spec.ts:28:3
+[cause]: TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole(&#39;link&#39;, { name: &#39;Edit Profile&#39;, exact: true })
+
+    at action (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/edit-profile.spec.ts:29:44)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:20</pre>
+    <a href="img/2-1.png"><img src="img/2-1.png" alt="Screenshot of PRF-002 | Localite edits name, bio, and hosted experiences"></a>
+  </section>
+
+  <section>
+    <h2>FOL-001 | Follow a localite by email from the profile</h2>
+    <p class="meta">localite/follow-localite.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Open the Join the Journey dialog&quot; failed: expect(locator).toBeVisible() failed
+
+Locator: getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Join the Journey&#39; }) })
+Expected: visible
+Timeout: 3000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;toBeVisible&quot; getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Join the Journey&#39; }) }) with timeout 3000ms
+  - waiting for getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Join the Journey&#39; }) })
+
+
+Call Log:
+- Timeout 30000ms exceeded while waiting on the predicate
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/follow-localite.spec.ts:27:3
+[cause]: Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Join the Journey&#39; }) })
+Expected: visible
+Timeout: 3000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;toBeVisible&quot; getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Join the Journey&#39; }) }) with timeout 3000ms
+  - waiting for getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Join the Journey&#39; }) })
+
+
+Call Log:
+- Timeout 30000ms exceeded while waiting on the predicate
+    at GuideProfilePage.openFollowDialog (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/pages/localite/guide-profile-page.ts:121:8)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/follow-localite.spec.ts:28:5
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/follow-localite.spec.ts:27:3</pre>
+    <a href="img/3-1.png"><img src="img/3-1.png" alt="Screenshot of FOL-001 | Follow a localite by email from the profile"></a>
+  </section>
+
+  <section>
+    <h2>SET-002 | Localite edits phone and Bio and changes password</h2>
+    <p class="meta">localite/localite-settings.spec.ts · chromium</p>
+    
+    <pre>Error: No created localite found (testdata/localite/created-localite.json). Run the localite signup test (LOC-001) first: npm run test:setup
+
+  15 |   const localite = await readCreatedLocalite();
+  16 |   if (!localite) {
+&gt; 17 |     throw new Error(
+     |           ^
+  18 |       &#39;No created localite found (testdata/localite/created-localite.json). &#39; +
+  19 |       &#39;Run the localite signup test (LOC-001) first: npm run test:setup&#39;,
+  20 |     );
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/localite-settings.spec.ts:17:11</pre>
+    <a href="img/4-1.png"><img src="img/4-1.png" alt="Screenshot of SET-002 | Localite edits phone and Bio and changes password"></a>
+  </section>
+
+  <section>
+    <h2>PRF-001 | Localite previews profile, follows, shares, and goes back</h2>
+    <p class="meta">localite/preview-profile.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Open Preview Profile&quot; failed: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole(&#39;link&#39;, { name: &#39;Preview Profile&#39;, exact: true })
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/preview-profile.spec.ts:34:3
+[cause]: TimeoutError: locator.click: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole(&#39;link&#39;, { name: &#39;Preview Profile&#39;, exact: true })
+
+    at action (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/preview-profile.spec.ts:35:47)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:20</pre>
+    <a href="img/5-1.png"><img src="img/5-1.png" alt="Screenshot of PRF-001 | Localite previews profile, follows, shares, and goes back"></a>
+  </section>
+
+  <section>
+    <h2>PRF-003 | Localite opens and closes Profile Sharing from the profile</h2>
+    <p class="meta">localite/share-profile.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Open Profile Sharing&quot; failed: expect(locator).toBeVisible() failed
+
+Locator: getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Profile Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat/, level: 5 })
+Expected: visible
+Timeout: 10000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;toBeVisible&quot; getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Profile Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat/, level: 5 }) with timeout 10000ms
+  - waiting for getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Profile Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat/, level: 5 })
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/share-profile.spec.ts:22:3
+[cause]: Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Profile Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat/, level: 5 })
+Expected: visible
+Timeout: 10000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;toBeVisible&quot; getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Profile Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat/, level: 5 }) with timeout 10000ms
+  - waiting for getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Profile Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat/, level: 5 })
+
+    at ProfileSharingDialog.verifyDetails (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/pages/components/profile-sharing-dialog.ts:34:57)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/share-profile.spec.ts:24:5
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/share-profile.spec.ts:22:3</pre>
+    <a href="img/6-1.png"><img src="img/6-1.png" alt="Screenshot of PRF-003 | Localite opens and closes Profile Sharing from the profile"></a>
+  </section>
+
+  <section>
+    <h2>EXP-001 | Traveler opens the created experience: wishlist, share, like, and message</h2>
+    <p class="meta">traveler/experience-details.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Verify the Experience Sharing dialog&quot; failed: expect(locator).toBeVisible() failed
+
+Locator: getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Experience Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat( \(.+\))?$/, level: 5 })
+Expected: visible
+Timeout: 10000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;toBeVisible&quot; getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Experience Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat( \(.+\))?$/, level: 5 }) with timeout 10000ms
+  - waiting for getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Experience Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat( \(.+\))?$/, level: 5 })
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/traveler/experience-details.spec.ts:47:3
+[cause]: Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Experience Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat( \(.+\))?$/, level: 5 })
+Expected: visible
+Timeout: 10000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;toBeVisible&quot; getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Experience Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat( \(.+\))?$/, level: 5 }) with timeout 10000ms
+  - waiting for getByRole(&#39;dialog&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Experience Sharing&#39; }) }).getByRole(&#39;heading&#39;, { name: /^Phi Phat( \(.+\))?$/, level: 5 })
+
+    at ExperienceDetailsPage.verifyExperienceSharingDialog (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/pages/traveler/experience-details-page.ts:82:9)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/traveler/experience-details.spec.ts:48:5
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/traveler/experience-details.spec.ts:47:3</pre>
+    <a href="img/7-1.png"><img src="img/7-1.png" alt="Screenshot of EXP-001 | Traveler opens the created experience: wishlist, share, like, and message"></a>
+  </section>
+
+  <section>
+    <h2>SRCH-001 | Traveler finds the created localite by search</h2>
+    <p class="meta">traveler/search-localite.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Search for the localite&quot; failed: expect(locator).toBeVisible() failed
+
+Locator: getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Phi Phat&#39;, exact: true, level: 5 }) })
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;toBeVisible&quot; getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Phi Phat&#39;, exact: true, level: 5 }) }) with timeout 30000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Phi Phat&#39;, exact: true, level: 5 }) })
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/traveler/search-localite.spec.ts:23:3
+[cause]: Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Phi Phat&#39;, exact: true, level: 5 }) })
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;toBeVisible&quot; getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Phi Phat&#39;, exact: true, level: 5 }) }) with timeout 30000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Phi Phat&#39;, exact: true, level: 5 }) })
+
+    at LocalitesPage.verifyLocaliteDisplayed (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/pages/traveler/localites-page.ts:42:26)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/traveler/search-localite.spec.ts:26:25
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/traveler/search-localite.spec.ts:23:3</pre>
+    <a href="img/8-1.png"><img src="img/8-1.png" alt="Screenshot of SRCH-001 | Traveler finds the created localite by search"></a>
+  </section>
+
+  <section>
+    <h2>LBK-001 | Localite sees the traveler bookings, transactions, earnings, and dashboard totals</h2>
+    <p class="meta">flows/booking/03-localite-dashboard-after-bookings.spec.ts · booking-flow</p>
+    
+    <pre>Error: Step &quot;Verify all bookings in My Bookings&quot; failed: expect(locator).toHaveCount(expected) failed
+
+Locator:  getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) })
+Expected: 1
+Received: 0
+Timeout:  30000ms
+
+Call log:
+  - Expect &quot;toHaveCount&quot; getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) }) with timeout 30000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) })
+    63 × locator resolved to 0 elements
+       - unexpected value &quot;0&quot;
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/03-localite-dashboard-after-bookings.spec.ts:36:3
+[cause]: Error: expect(locator).toHaveCount(expected) failed
+
+Locator:  getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) })
+Expected: 1
+Received: 0
+Timeout:  30000ms
+
+Call log:
+  - Expect &quot;toHaveCount&quot; getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) }) with timeout 30000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) })
+    63 × locator resolved to 0 elements
+       - unexpected value &quot;0&quot;
+
+    at LocaliteBookingsPage.verifyLocaliteBookingRow (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/pages/localite/localite-bookings-page.ts:80:23)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/03-localite-dashboard-after-bookings.spec.ts:44:38
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/03-localite-dashboard-after-bookings.spec.ts:36:3</pre>
+    <a href="img/9-1.png"><img src="img/9-1.png" alt="Screenshot of LBK-001 | Localite sees the traveler bookings, transactions, earnings, and dashboard totals"></a>
+  </section>
+
+  <section>
+    <h2>CNL-001 | Traveler cancels an Ongoing and a Pending booking; the localite sees them Cancelled</h2>
+    <p class="meta">flows/booking/04-traveler-cancel-booking.spec.ts · booking-flow</p>
+    
+    <pre>Error: Step &quot;Cancel the Pending booking&quot; failed: expect(locator).toHaveText(expected) failed
+
+Locator:  getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-29-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6)
+Expected: &quot;Pending Payment&quot;
+Received: &quot;Cancelled&quot;
+Timeout:  30000ms
+
+Call log:
+  - Expect &quot;toHaveText&quot; getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-29-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6) with timeout 30000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-29-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6)
+    62 × locator resolved to &lt;td&gt;…&lt;/td&gt;
+       - unexpected value &quot;Cancelled&quot;
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/04-traveler-cancel-booking.spec.ts:63:3
+[cause]: Error: expect(locator).toHaveText(expected) failed
+
+Locator:  getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-29-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6)
+Expected: &quot;Pending Payment&quot;
+Received: &quot;Cancelled&quot;
+Timeout:  30000ms
+
+Call log:
+  - Expect &quot;toHaveText&quot; getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-29-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6) with timeout 30000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-29-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6)
+    62 × locator resolved to &lt;td&gt;…&lt;/td&gt;
+       - unexpected value &quot;Cancelled&quot;
+
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/04-traveler-cancel-booking.spec.ts:67:66
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/04-traveler-cancel-booking.spec.ts:63:3</pre>
+    <a href="img/10-1.png"><img src="img/10-1.png" alt="Screenshot of CNL-001 | Traveler cancels an Ongoing and a Pending booking; the localite sees them Cancelled"></a>
+  </section>
+
+  <section>
+    <h2>LCN-001 | Localite cancels an Ongoing and a Pending booking; the traveler sees them Cancelled</h2>
+    <p class="meta">flows/booking/05-localite-cancel-booking.spec.ts · booking-flow</p>
+    
+    <pre>Error: Step &quot;Sign in as localite and open My Bookings&quot; failed: expect(locator).toHaveText(expected) failed
+
+Locator: getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6)
+Expected pattern: /^(Ongoing|Cancell?ed)$/
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;toHaveText&quot; getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6) with timeout 30000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6)
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/05-localite-cancel-booking.spec.ts:32:3
+[cause]: Error: expect(locator).toHaveText(expected) failed
+
+Locator: getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6)
+Expected pattern: /^(Ongoing|Cancell?ed)$/
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;toHaveText&quot; getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6) with timeout 30000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;10-26-2026&#39;, exact: true }) }).getByRole(&#39;cell&#39;).nth(6)
+
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/05-localite-cancel-booking.spec.ts:38:72
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/05-localite-cancel-booking.spec.ts:32:3</pre>
+    <a href="img/11-1.png"><img src="img/11-1.png" alt="Screenshot of LCN-001 | Localite cancels an Ongoing and a Pending booking; the traveler sees them Cancelled"></a>
+  </section>
+</body>
+</html>
