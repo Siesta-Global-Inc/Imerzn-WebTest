@@ -142,7 +142,7 @@ jobs:
             ICON=":x:"; RESULT="Tests failed"
           fi
 
-          TEXT="$ICON *Playwright tests — $RESULT* (branch \`$BRANCH\`, by $ACTOR)
+          TEXT="$ICON *Web tests — $RESULT* (branch \`$BRANCH\`, by $ACTOR)
           Passed: $PASSED  |  Failed: $FAILED  |  Flaky: $FLAKY  |  Skipped: $SKIPPED"
           if [ -n "$FAILED_TESTS" ] && [ "$TEST_OUTCOME" != "success" ]; then
             TEXT="$TEXT
