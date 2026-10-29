@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Test Failures</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0 auto; max-width: 1100px; padding: 16px; color: #1f2328; background: #fff; }
+  h1 { font-size: 22px; } h2 { font-size: 18px; margin-bottom: 4px; }
+  .meta { color: #59636e; font-size: 13px; margin-top: 0; }
+  section { border-top: 1px solid #d1d9e0; padding-top: 12px; margin-top: 20px; }
+  pre { background: #f6f8fa; padding: 12px; overflow-x: auto; white-space: pre-wrap; font-size: 13px; }
+  .offline { background: #fff8c5; border: 1px solid #d4a72c; padding: 8px 12px; }
+  img { max-width: 100%; border: 1px solid #d1d9e0; margin-top: 8px; }
+</style>
+</head>
+<body>
+<h1>Playwright test failures</h1>
+<p>Passed: 21 | Failed: 1 | Flaky: 1 | Skipped: 0</p>
+<p class="meta">Screenshots and errors only (passwords masked). The full report with traces is in the run's playwright-report artifact.</p>
+
+  <section>
+    <h2>PRF-002 | Localite edits name, bio, and hosted experiences</h2>
+    <p class="meta">localite/edit-profile.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Edit name, bio, and experiences&quot; failed: expect(locator).not.toHaveValue(expected) failed
+
+Locator: getByRole(&#39;textbox&#39;, { name: &#39;First Name&#39;, exact: true })
+Expected: not &quot;&quot;
+Timeout: 10000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;not toHaveValue&quot; getByRole(&#39;textbox&#39;, { name: &#39;First Name&#39;, exact: true }) with timeout 10000ms
+  - waiting for getByRole(&#39;textbox&#39;, { name: &#39;First Name&#39;, exact: true })
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/edit-profile.spec.ts:28:3
+[cause]: Error: expect(locator).not.toHaveValue(expected) failed
+
+Locator: getByRole(&#39;textbox&#39;, { name: &#39;First Name&#39;, exact: true })
+Expected: not &quot;&quot;
+Timeout: 10000ms
+Error: element(s) not found
+
+Call log:
+  - Expect &quot;not toHaveValue&quot; getByRole(&#39;textbox&#39;, { name: &#39;First Name&#39;, exact: true }) with timeout 10000ms
+  - waiting for getByRole(&#39;textbox&#39;, { name: &#39;First Name&#39;, exact: true })
+
+    at EditProfilePage.fillForm (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/pages/localite/edit-profile-page.ts:34:43)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/edit-profile.spec.ts:30:5
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/edit-profile.spec.ts:28:3</pre>
+    <a href="img/1-1.png"><img src="img/1-1.png" alt="Screenshot of PRF-002 | Localite edits name, bio, and hosted experiences"></a>
+  </section>
+</body>
+</html>
