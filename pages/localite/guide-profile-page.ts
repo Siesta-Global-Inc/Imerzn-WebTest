@@ -89,11 +89,14 @@ export class GuideProfilePage {
     ).toBe('');
   }
 
-  /** Profile Follow button; its label is "Follow" or "Unfollow" but both open Join the Journey. */
+  /**
+   * Follow button on a localite's public profile (/local-guides/<slug>), named e.g. "Follow Hoa"
+   * or "Unfollow Hoa"; both open Join the Journey. The localite's own profile has no Follow button.
+   */
   get followButton(): Locator {
     return this.page
       .getByRole('main')
-      .getByRole('link', { name: /^(Follow|Unfollow)$/ });
+      .getByRole('button', { name: /^(Follow|Unfollow)\b/ });
   }
 
   /** "Join the Journey" dialog for following a localite by email. */

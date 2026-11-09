@@ -37,12 +37,14 @@ export class ExperienceDetailsPage {
     return this.iconBar.locator('button.like-thumb + p');
   }
 
+  // The page shows Book Experience and Message / Plan My Trip twice: under the title and again
+  // in the side price card (#exp-card-cta-slot). Both open the same dialog; use the one under the title.
   get bookExperienceButton(): Locator {
-    return this.main.getByRole('button', { name: 'Book Experience', exact: true });
+    return this.main.getByRole('button', { name: 'Book Experience', exact: true }).first();
   }
 
   get messageButton(): Locator {
-    return this.main.getByRole('button', { name: 'Message / Plan My Trip', exact: true });
+    return this.main.getByRole('button', { name: 'Message / Plan My Trip', exact: true }).first();
   }
 
   get createFirstWishlistDialog(): Locator {
