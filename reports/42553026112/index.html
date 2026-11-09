@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Test Failures</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0 auto; max-width: 1100px; padding: 16px; color: #1f2328; background: #fff; }
+  h1 { font-size: 22px; } h2 { font-size: 18px; margin-bottom: 4px; }
+  .meta { color: #59636e; font-size: 13px; margin-top: 0; }
+  section { border-top: 1px solid #d1d9e0; padding-top: 12px; margin-top: 20px; }
+  pre { background: #f6f8fa; padding: 12px; overflow-x: auto; white-space: pre-wrap; font-size: 13px; }
+  .offline { background: #fff8c5; border: 1px solid #d4a72c; padding: 8px 12px; }
+  img { max-width: 100%; border: 1px solid #d1d9e0; margin-top: 8px; }
+</style>
+</head>
+<body>
+<h1>Playwright test failures</h1>
+<p>Passed: 20 | Failed: 1 | Flaky: 2 | Skipped: 0</p>
+<p class="meta">Screenshots and errors only (passwords masked). The full report with traces is in the run's playwright-report artifact.</p>
+
+  <section>
+    <h2>REF-001 | Referral program: referrer earns Referral % of the commission and withdraws it</h2>
+    <p class="meta">localite/referral-program.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Referee: check a transaction in My Transactions&quot; failed: No paid Ongoing booking can be completed yet (Ongoing: 4320, 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068; with Complete booking: 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068). &quot;Complete booking&quot; appears only after the booking&#39;s start time. The last steps of this test book and pay for &quot;Experience For Referral&quot; as Traveler Referral; wait until that booking starts, or book and pay an earlier slot once by hand.
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/referral-program.spec.ts:76:3
+[cause]: Error: No paid Ongoing booking can be completed yet (Ongoing: 4320, 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068; with Complete booking: 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068). &quot;Complete booking&quot; appears only after the booking&#39;s start time. The last steps of this test book and pay for &quot;Experience For Referral&quot; as Traveler Referral; wait until that booking starts, or book and pay an earlier slot once by hand.
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/referral-program.spec.ts:92:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/referral-program.spec.ts:76:3</pre>
+    <a href="img/1-1.png"><img src="img/1-1.png" alt="Screenshot of REF-001 | Referral program: referrer earns Referral % of the commission and withdraws it"></a>
+  </section>
+</body>
+</html>
