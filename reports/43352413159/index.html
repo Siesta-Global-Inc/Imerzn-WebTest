@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Test Failures</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0 auto; max-width: 1100px; padding: 16px; color: #1f2328; background: #fff; }
+  h1 { font-size: 22px; } h2 { font-size: 18px; margin-bottom: 4px; }
+  .meta { color: #59636e; font-size: 13px; margin-top: 0; }
+  section { border-top: 1px solid #d1d9e0; padding-top: 12px; margin-top: 20px; }
+  pre { background: #f6f8fa; padding: 12px; overflow-x: auto; white-space: pre-wrap; font-size: 13px; }
+  .offline { background: #fff8c5; border: 1px solid #d4a72c; padding: 8px 12px; }
+  img { max-width: 100%; border: 1px solid #d1d9e0; margin-top: 8px; }
+</style>
+</head>
+<body>
+<h1>Playwright test failures</h1>
+<p>Passed: 17 | Failed: 3 | Flaky: 3 | Skipped: 0</p>
+<p class="meta">Screenshots and errors only (passwords masked). The full report with traces is in the run's playwright-report artifact.</p>
+
+  <section>
+    <h2>PRF-002 | Localite edits name, bio, and hosted experiences</h2>
+    <p class="meta">localite/edit-profile.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Edit name, bio, and experiences&quot; failed: locator.fill: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole(&#39;textbox&#39;, { name: &#39;First Name&#39;, exact: true })
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/edit-profile.spec.ts:28:3
+[cause]: TimeoutError: locator.fill: Timeout 15000ms exceeded.
+Call log:
+  - waiting for getByRole(&#39;textbox&#39;, { name: &#39;First Name&#39;, exact: true })
+
+    at EditProfilePage.fillForm (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/pages/localite/edit-profile-page.ts:36:31)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/edit-profile.spec.ts:30:5
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/edit-profile.spec.ts:28:3</pre>
+    <a href="img/1-1.png"><img src="img/1-1.png" alt="Screenshot of PRF-002 | Localite edits name, bio, and hosted experiences"></a>
+  </section>
+
+  <section>
+    <h2>REF-001 | Referral program: referrer earns Referral % of the commission and withdraws it</h2>
+    <p class="meta">localite/referral-program.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Referee: check a transaction in My Transactions&quot; failed: No paid Ongoing booking can be completed yet (Ongoing: 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068, 4063; with Complete booking: 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068, 4063). &quot;Complete booking&quot; appears only after the booking&#39;s start time. The last steps of this test book and pay for &quot;Experience For Referral&quot; as Traveler Referral; wait until that booking starts, or book and pay an earlier slot once by hand.
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/referral-program.spec.ts:76:3
+[cause]: Error: No paid Ongoing booking can be completed yet (Ongoing: 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068, 4063; with Complete booking: 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068, 4063). &quot;Complete booking&quot; appears only after the booking&#39;s start time. The last steps of this test book and pay for &quot;Experience For Referral&quot; as Traveler Referral; wait until that booking starts, or book and pay an earlier slot once by hand.
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/referral-program.spec.ts:92:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/referral-program.spec.ts:76:3</pre>
+    <a href="img/2-1.png"><img src="img/2-1.png" alt="Screenshot of REF-001 | Referral program: referrer earns Referral % of the commission and withdraws it"></a>
+  </section>
+
+  <section>
+    <h2>SRCH-001 | Traveler finds the created localite by search</h2>
+    <p class="meta">traveler/search-localite.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Search for the localite&quot; failed: expect(locator).toBeVisible() failed
+
+Locator: getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Hoa Nguyen&#39;, exact: true, level: 5 }) })
+Expected: visible
+Error: strict mode violation: getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Hoa Nguyen&#39;, exact: true, level: 5 }) }) resolved to 12 elements:
+    1) &lt;a href=&quot;/local-guides/hoa-nguyen-aoh&quot;&gt;…&lt;/a&gt; aka getByRole(&#39;link&#39;, { name: &#39;Hoa Nguyen (Automation Tours)&#39; }).first()
+    2) &lt;a href=&quot;/local-guides/hoa-nguyen-bqn&quot;&gt;…&lt;/a&gt; aka getByRole(&#39;link&#39;, { name: &#39;Hoa Nguyen (Automation Tours)&#39; }).nth(1)
+    3) &lt;a href=&quot;/local-guides/hoa-nguyen-olv&quot;&gt;…&lt;/a&gt; aka getByRole(&#39;link&#39;, { name: &#39;Hoa Nguyen (Automation Tours)&#39; }).nth(2)
+    4) &lt;a href=&quot;/local-guides/hoa-nguyen-nkx&quot;&gt;…&lt;/a&gt; aka getByRole(&#39;link&#39;, { name: &#39;Hoa Nguyen (Automation Tours)&#39; }).nth(3)
+    5) &lt;a href=&quot;/local-guides/hoa-nguyen-ssv&quot;&gt;…&lt;/a&gt; aka getByRole(&#39;link&#39;, { name: &#39;Hoa Nguyen (Automation Tours)&#39; }).nth(4)
+    6) &lt;a href=&quot;/local-guides/hoa-nguyen-dxn&quot;&gt;…&lt;/a&gt; aka getByRole(&#39;link&#39;, { name: &#39;Hoa Nguyen (Automation Tours)&#39; }).nth(5)
+    7) &lt;a href=&quot;/local-guides/hoa-nguyen-emz&quot;&gt;…&lt;/a&gt; aka locator(&#39;div:nth-child(7) &gt; .d-flex.gap-3.localite-card-wrap &gt; .flex-grow-1 &gt; .d-flex &gt; a&#39;)
+    8) &lt;a href=&quot;/local-guides/hoa-nguyen-qtd&quot;&gt;…&lt;/a&gt; aka locator(&#39;div:nth-child(8) &gt; .d-flex.gap-3.localite-card-wrap &gt; .flex-grow-1 &gt; .d-flex &gt; a&#39;)
+    9) &lt;a href=&quot;/local-guides/hoa-nguyen-azm&quot;&gt;…&lt;/a&gt; aka locator(&#39;div:nth-child(9) &gt; .d-flex.gap-3.localite-card-wrap &gt; .flex-grow-1 &gt; .d-flex &gt; a&#39;)
+    10) &lt;a href=&quot;/local-guides/hoa-nguyen-lns&quot;&gt;…&lt;/a&gt; aka locator(&#39;div:nth-child(10) &gt; .d-flex.gap-3.localite-card-wrap &gt; .flex-grow-1 &gt; .d-flex &gt; a&#39;)
+    ...
+
+Call log:
+  - Expect &quot;toBeVisible&quot; getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Hoa Nguyen&#39;, exact: true, level: 5 }) }) with timeout 30000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Hoa Nguyen&#39;, exact: true, level: 5 }) })
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/traveler/search-localite.spec.ts:23:3
+[cause]: Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Hoa Nguyen&#39;, exact: true, level: 5 }) })
+Expected: visible
+Error: strict mode violation: getByRole(&#39;main&#39;).getByRole(&#39;link&#39;).filter({ has: getByRole(&#39;heading&#39;, { name: &#39;Hoa Nguyen&#39;, exact: true, level: 5 }) }) resolved to 12 elements:
+    1) &lt;a href=&quot;/local-guides/hoa-nguyen-aoh&quot;&gt;…&lt;/a&gt; aka g</pre>
+    <a href="img/3-1.png"><img src="img/3-1.png" alt="Screenshot of SRCH-001 | Traveler finds the created localite by search"></a>
+  </section>
+</body>
+</html>
