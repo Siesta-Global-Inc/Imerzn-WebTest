@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Test Failures</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0 auto; max-width: 1100px; padding: 16px; color: #1f2328; background: #fff; }
+  h1 { font-size: 22px; } h2 { font-size: 18px; margin-bottom: 4px; }
+  .meta { color: #59636e; font-size: 13px; margin-top: 0; }
+  section { border-top: 1px solid #d1d9e0; padding-top: 12px; margin-top: 20px; }
+  pre { background: #f6f8fa; padding: 12px; overflow-x: auto; white-space: pre-wrap; font-size: 13px; }
+  .offline { background: #fff8c5; border: 1px solid #d4a72c; padding: 8px 12px; }
+  img { max-width: 100%; border: 1px solid #d1d9e0; margin-top: 8px; }
+</style>
+</head>
+<body>
+<h1>Playwright test failures</h1>
+<p>Passed: 18 | Failed: 4 | Flaky: 1 | Skipped: 0</p>
+<p class="meta">Screenshots and errors only (passwords masked). The full report with traces is in the run's playwright-report artifact.</p>
+
+  <section>
+    <h2>REF-001 | Referral program: referrer earns Referral % of the commission and withdraws it</h2>
+    <p class="meta">localite/referral-program.spec.ts · chromium</p>
+    
+    <pre>Error: Step &quot;Referee: check a transaction in My Transactions&quot; failed: No paid Ongoing booking can be completed yet (Ongoing: 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068, 4063; with Complete booking: 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068, 4063). &quot;Complete booking&quot; appears only after the booking&#39;s start time. The last steps of this test book and pay for &quot;Experience For Referral&quot; as Traveler Referral; wait until that booking starts, or book and pay an earlier slot once by hand.
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/referral-program.spec.ts:76:3
+[cause]: Error: No paid Ongoing booking can be completed yet (Ongoing: 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068, 4063; with Complete booking: 4247, 4237, 4226, 4215, 4205, 4193, 4175, 4170, 4068, 4063). &quot;Complete booking&quot; appears only after the booking&#39;s start time. The last steps of this test book and pay for &quot;Experience For Referral&quot; as Traveler Referral; wait until that booking starts, or book and pay an earlier slot once by hand.
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/referral-program.spec.ts:92:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/localite/referral-program.spec.ts:76:3</pre>
+    <a href="img/1-1.png"><img src="img/1-1.png" alt="Screenshot of REF-001 | Referral program: referrer earns Referral % of the commission and withdraws it"></a>
+  </section>
+
+  <section>
+    <h2>DSH-002 | Dashboard, My Bookings, and Transactions show the paid and pending bookings</h2>
+    <p class="meta">flows/booking/02-traveler-dashboard-after-bookings.spec.ts · booking-flow</p>
+    
+    <pre>Error: Step &quot;Verify Total Trips is 4&quot; failed: expect(locator).toHaveText(expected) failed
+
+Locator: getByRole(&#39;main&#39;).getByRole(&#39;heading&#39;, { name: &#39;Total Trips&#39;, exact: true }).locator(&#39;..&#39;)
+Expected pattern: /^\s*Total Trips\s*4\s*$/
+Received string:  &quot;Total Trips5&quot;
+Timeout: 10000ms
+
+Call log:
+  - Expect &quot;toHaveText&quot; getByRole(&#39;main&#39;).getByRole(&#39;heading&#39;, { name: &#39;Total Trips&#39;, exact: true }).locator(&#39;..&#39;) with timeout 10000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;heading&#39;, { name: &#39;Total Trips&#39;, exact: true }).locator(&#39;..&#39;)
+    23 × locator resolved to &lt;div class=&quot;stats_content&quot;&gt;…&lt;/div&gt;
+       - unexpected value &quot;Total Trips5&quot;
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/02-traveler-dashboard-after-bookings.spec.ts:27:3
+[cause]: Error: expect(locator).toHaveText(expected) failed
+
+Locator: getByRole(&#39;main&#39;).getByRole(&#39;heading&#39;, { name: &#39;Total Trips&#39;, exact: true }).locator(&#39;..&#39;)
+Expected pattern: /^\s*Total Trips\s*4\s*$/
+Received string:  &quot;Total Trips5&quot;
+Timeout: 10000ms
+
+Call log:
+  - Expect &quot;toHaveText&quot; getByRole(&#39;main&#39;).getByRole(&#39;heading&#39;, { name: &#39;Total Trips&#39;, exact: true }).locator(&#39;..&#39;) with timeout 10000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;heading&#39;, { name: &#39;Total Trips&#39;, exact: true }).locator(&#39;..&#39;)
+    23 × locator resolved to &lt;div class=&quot;stats_content&quot;&gt;…&lt;/div&gt;
+       - unexpected value &quot;Total Trips5&quot;
+
+    at DashboardPage.verifyTotalTrips (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/pages/traveler/dashboard-page.ts:55:39)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/02-traveler-dashboard-after-bookings.spec.ts:30:25
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/02-traveler-dashboard-after-bookings.spec.ts:27:3</pre>
+    <a href="img/2-1.png"><img src="img/2-1.png" alt="Screenshot of DSH-002 | Dashboard, My Bookings, and Transactions show the paid and pending bookings"></a>
+  </section>
+
+  <section>
+    <h2>LBK-001 | Localite sees the traveler bookings, transactions, earnings, and dashboard totals</h2>
+    <p class="meta">flows/booking/03-localite-dashboard-after-bookings.spec.ts · booking-flow</p>
+    
+    <pre>Error: Step &quot;Verify all bookings in My Bookings&quot; failed: expect(locator).toHaveCount(expected) failed
+
+Locator:  getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;11-19-2026&#39;, exact: true }) })
+Expected: 1
+Received: 2
+Timeout:  30000ms
+
+Call log:
+  - Expect &quot;toHaveCount&quot; getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;11-19-2026&#39;, exact: true }) }) with timeout 30000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;11-19-2026&#39;, exact: true }) })
+    - locator resolved to 0 elements
+    - unexpected value &quot;0&quot;
+    61 × locator resolved to 2 elements
+       - unexpected value &quot;2&quot;
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/03-localite-dashboard-after-bookings.spec.ts:36:3
+[cause]: Error: expect(locator).toHaveCount(expected) failed
+
+Locator:  getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;11-19-2026&#39;, exact: true }) })
+Expected: 1
+Received: 2
+Timeout:  30000ms
+
+Call log:
+  - Expect &quot;toHaveCount&quot; getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;11-19-2026&#39;, exact: true }) }) with timeout 30000ms
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;11-19-2026&#39;, exact: true }) })
+    - locator resolved to 0 elements
+    - unexpected value &quot;0&quot;
+    61 × locator resolved to 2 elements
+       - unexpected value &quot;2&quot;
+
+    at LocaliteBookingsPage.verifyLocaliteBookingRow (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/pages/localite/localite-bookings-page.ts:80:23)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/03-localite-dashboard-after-bookings.spec.ts:44:38
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:14
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/03-localite-dashboard-after-bookings.spec.ts:36:3</pre>
+    <a href="img/3-1.png"><img src="img/3-1.png" alt="Screenshot of LBK-001 | Localite sees the traveler bookings, transactions, earnings, and dashboard totals"></a>
+  </section>
+
+  <section>
+    <h2>LCN-001 | Localite cancels an Ongoing and a Pending booking; the traveler sees them Cancelled</h2>
+    <p class="meta">flows/booking/05-localite-cancel-booking.spec.ts · booking-flow</p>
+    
+    <pre>Error: Step &quot;Open Cancel Booking for the Ongoing booking&quot; failed: locator.click: Error: strict mode violation: getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;11-19-2026&#39;, exact: true }) }).getByRole(&#39;button&#39;, { name: &#39;Cancel Booking&#39; }) resolved to 2 elements:
+    1) &lt;button type=&quot;button&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;right&quot; title=&quot;Cancel Booking&quot; class=&quot;trash-btn flex-shrink-0 me-2&quot;&gt;…&lt;/button&gt; aka getByRole(&#39;button&#39;, { name: &#39;Cancel Booking&#39; }).nth(1)
+    2) &lt;button type=&quot;button&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;right&quot; title=&quot;Cancel Booking&quot; class=&quot;trash-btn flex-shrink-0 me-2&quot;&gt;…&lt;/button&gt; aka getByRole(&#39;button&#39;, { name: &#39;Cancel Booking&#39; }).nth(2)
+
+Call log:
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;11-19-2026&#39;, exact: true }) }).getByRole(&#39;button&#39;, { name: &#39;Cancel Booking&#39; })
+
+
+   at ../helpers/step.ts:17
+
+  15 |       const message = error instanceof Error ? error.message : String(error);
+  16 |       console.error(`[FAILED] ${title}: ${message}`);
+&gt; 17 |       throw new Error(`Step &quot;${title}&quot; failed: ${message}`, { cause: error });
+     |             ^
+  18 |     }
+  19 |   });
+  20 | }
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:17:13
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/05-localite-cancel-booking.spec.ts:47:5
+[cause]: Error: locator.click: Error: strict mode violation: getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;11-19-2026&#39;, exact: true }) }).getByRole(&#39;button&#39;, { name: &#39;Cancel Booking&#39; }) resolved to 2 elements:
+    1) &lt;button type=&quot;button&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;right&quot; title=&quot;Cancel Booking&quot; class=&quot;trash-btn flex-shrink-0 me-2&quot;&gt;…&lt;/button&gt; aka getByRole(&#39;button&#39;, { name: &#39;Cancel Booking&#39; }).nth(1)
+    2) &lt;button type=&quot;button&quot; data-toggle=&quot;tooltip&quot; data-placement=&quot;right&quot; title=&quot;Cancel Booking&quot; class=&quot;trash-btn flex-shrink-0 me-2&quot;&gt;…&lt;/button&gt; aka getByRole(&#39;button&#39;, { name: &#39;Cancel Booking&#39; }).nth(2)
+
+Call log:
+  - waiting for getByRole(&#39;main&#39;).getByRole(&#39;row&#39;).filter({ has: getByRole(&#39;cell&#39;, { name: &#39;11-19-2026&#39;, exact: true }) }).getByRole(&#39;button&#39;, { name: &#39;Cancel Booking&#39; })
+
+    at LocaliteBookingsPage.openCancelDialog (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/pages/traveler/my-bookings-page.ts:108:35)
+    at action (/home/runner/work/Imerzn-WebTest/Imerzn-WebTest/tests/flows/booking/05-localite-cancel-booking.spec.ts:48:34)
+    at /home/runner/work/Imerzn-WebTest/Imerzn-WebTest/helpers/step.ts:12:20</pre>
+    <a href="img/4-1.png"><img src="img/4-1.png" alt="Screenshot of LCN-001 | Localite cancels an Ongoing and a Pending booking; the traveler sees them Cancelled"></a>
+  </section>
+</body>
+</html>
